@@ -1,0 +1,53 @@
+{% extends 'base.html' %}
+
+{% block head %}
+<title>Editar producto</title>
+{% endblock %}
+
+{% block body %}
+<main class="container p-4">
+  <h1 class="col-md-12 text-center my-auto">Editar Producto</h1>
+  <div class="card">
+    <div class="card-header">
+      <form
+        action="/editarproducto/{{producto.idProducto}}"
+        enctype="multipart/form-data"
+        method="POST"
+      >
+        
+          <input
+            type="text"
+            value="{{producto.nombreProducto}}"
+            name="nombreProducto"
+            placeholder="Nombre Producto"
+            class="form-control mb-3"
+          />
+          <!-- <img
+            src="{{producto.imagenProducto}}"
+            alt="{{producto.nombreProducto}}"
+          /> -->
+          <input
+            type="file"
+            name="imagenProducto"
+            placeholder="Imagen Producto"
+            class="form-control mb-3"
+            required
+          />
+          <input
+            type="number"
+            step="50"
+            value="{{producto.precioProducto}}"
+            name="precioProducto"
+            placeholder="Precio Producto"
+            class="form-control mb-3"
+          />
+       
+        <button type="submit" class="btn btn-primary btn-block">
+          Guardar
+        </button>
+      </form>
+    </div>
+    <div class="card-body"></div>
+  </div>
+</main>
+{% endblock %}

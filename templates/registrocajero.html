@@ -1,0 +1,57 @@
+{% extends 'base.html' %}
+
+{% block head %}
+<title>Catalogo Productos</title>
+{% endblock %}
+
+{% block body %}
+<div class="container">
+
+    <form action="" method="post" class="row g-3 mt-3 ">
+        <div class="col-md-9 bg-white rounded">
+            <table class="table bg-white">
+                <thead>
+                  <tr>
+                    <th scope="col">ID</th>
+                    <th scope="col">Imagen</th>
+                    <th scope="col">Nombre</th>
+                    <th scope="col">Precio</th>
+                    <th scope="col">Cantidad</th>
+                    
+                  </tr>
+                </thead>
+                <tbody>
+                  {% for producto in productos %}
+                  <tr>
+                    <td scope="row">{{producto.id}}</td>
+                    <td scope="row">
+                      <img
+                        class="imagenProducto rounded"
+                        src="{{ 'static/images/products_pics/{}'.format(producto.imagenProducto) }}"
+                        alt="{{ productos.nombreProducto }}"
+                      />
+                    </td>
+                    <td>{{producto.nombreProducto}}</td>
+                    <td>{{producto.precioProducto}}</td>
+                    <td><input type="number" name="{{producto.nombreProducto}}" value="0" min="0" max="25" required></td>
+                    
+                  </tr>
+                  {% endfor %}
+                </tbody>
+            </table>
+        </div>
+        <div class="col-md-3">
+          <div class="p-3 border bg-white rounded">
+              <h4 class="mb-3 pb-2 border-bottom">Subtotal</h4>
+              <strong>${{total}}</strong>
+              <div class="mt-4 d-grid">
+                  <input class="btn btn-success" type="submit" value="Pagar"/>
+                    
+                  
+              </div>
+            </div>
+        </div>
+      </form>
+    
+  </div>
+{% endblock %}

@@ -1,0 +1,112 @@
+{% extends 'base.html' %}
+
+{% block head %}
+<title>Registro</title>
+{% endblock %}
+
+{% block body %}
+<div class="modal-dialog">
+  <div class="col-sm-8 main-section">
+    <div class="modal-content">
+      <div class="col-12 user-img">
+        <img
+          src="{{ url_for('static', filename='images/avatar.png')}}"
+          width="180"
+          height="140"
+        />
+      </div>
+      <form action="/registro" method="post" class="col-12 text-white pb-3">
+        {{form.hidden_tag()}}
+
+        <!-- <input type="text" class="form-control is-invalid" id="validationServer02" value="Otto" required>
+        <div class="invalid-feedback">
+          Looks good!
+        </div> -->
+
+        {{form.nombre.label(class="form-label")}}
+        {% if form.nombre.errors %}
+          {{form.nombre(class="form-control is-invalid mb-2", placeholder="Ingrese su nombre")}}
+          <div class="invalid-feedback">
+            {% for error in form.nombre.errors %}
+              {{error}}
+            {% endfor %}
+          </div>
+        {% else %}
+         {{form.nombre(class="form-control mb-2", placeholder="Ingrese su nombre")}}
+        {% endif %}
+
+        {{form.apellido.label(class="form-label")}}
+        {% if form.apellido.errors %}
+          {{form.apellido(class="form-control is-invalid mb-2", placeholder="Ingrese su apellido")}}
+          <div class="invalid-feedback">
+            {% for error in form.apellido.errors %}
+              {{error}}
+            {% endfor %}
+          </div>
+        {% else %}
+         {{form.apellido(class="form-control mb-2", placeholder="Ingrese su apellido")}}
+        {% endif %}
+
+        {{form.correo.label(class="form-label")}}
+        {% if form.correo.errors %}
+          {{form.correo(class="form-control is-invalid mb-2", placeholder="Ingrese su correo")}}
+          <div class="invalid-feedback">
+            {% for error in form.correo.errors %}
+              {{error}}
+            {% endfor %}
+          </div>
+        {% else %}
+         {{form.correo(class="form-control mb-2", placeholder="Ingrese su correo")}}
+        {% endif %}
+
+        {{form.password.label(class="form-label")}}
+        {% if form.password.errors %}
+          {{form.password(class="form-control is-invalid mb-2", placeholder="Ingrese su contraseña")}}
+          <div class="invalid-feedback">
+            {% for error in form.password.errors %}
+              {{error}}
+            {% endfor %}
+          </div>
+        {% else %}
+         {{form.password(class="form-control mb-2", placeholder="Ingrese su contraseña")}}
+        {% endif %}
+
+        {{form.password2.label(class="form-label")}}
+        {% if form.password2.errors %}
+          {{form.password2(class="form-control is-invalid mb-2", placeholder="Confirme su contraseña")}}
+          <div class="invalid-feedback">
+            {% for error in form.password2.errors %}
+              {{error}}
+            {% endfor %}
+          </div>
+        {% else %}
+         {{form.password2(class="form-control mb-2", placeholder="Confirme su contraseña")}}
+        {% endif %}
+
+        {{form.rol.label(class="form-label")}}
+        {% if form.rol.errors %}
+          {{form.rol(class="form-select is-invalid mb-2")}}
+          <div class="invalid-feedback">
+            {% for error in form.rol.errors %}
+              {{error}}
+            {% endfor %}
+          </div>
+        {% else %}
+         {{form.rol(class="form-select mb-2")}}
+        {% endif %}
+
+        {{form.registrar(class="btn btn-primary")}}
+        
+
+        <!-- <div class="mb-3">
+          <label for="email" class="form-label">Email address</label>
+          <input type="email" class="form-control" id="email" placeholder="name@example.com">
+        </div> -->
+
+        
+      </form>
+      
+    </div>
+  </div>
+</div>
+{% endblock %}

@@ -1,0 +1,92 @@
+
+{% extends 'base.html' %}
+
+{% block head %}
+<title>Productos</title>
+{% endblock %}
+
+
+{% block body %}
+<main class="container p-4">
+  
+  <div class="card">
+    <h1 class="col-md-12 text-center my-2">Productos</h1>
+    <div class="card-header">
+      <form
+        action="{{url_for('agregarProductos')}}"
+        enctype="multipart/form-data"
+        method="POST"
+      >
+        
+          <input
+            type="text"
+            name="nombreProducto"
+            placeholder="Nombre Producto"
+            class="form-control mb-3"
+          />
+          <input
+            type="file"
+            name="imagenProducto"
+            placeholder="Imagen Producto"
+            class="form-control mb-3"
+          />
+          <input
+            type="number"
+            step="50"
+            name="precioProducto"
+            placeholder="Precio Producto"
+            class="form-control mb-3"
+          />
+        
+        <button type="submit" class="btn btn-primary btn-block">
+          Guardar
+        </button>
+
+        <a href="{{url_for('administrador')}}"class="btn btn-success">
+         Finalizar
+        </a>
+      </form>
+    </div>
+    <div class="card-body">
+      <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">ID</th>
+            <th scope="col">Imagen</th>
+            <th scope="col">Nombre</th>
+            <th scope="col">Precio</th>
+            <th scope="col">Editar/Eliminar</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for producto in productos %}
+          <tr>
+            <td scope="row">{{producto.id}}</td>
+            <td scope="row">
+              <img
+                class="imagenProducto rounded"
+                src="{{ 'static/images/products_pics/{}'.format(producto.imagenProducto) }}"
+                alt="{{ productos.nombreProducto }}"
+              />
+            </td>
+            <td>{{producto.nombreProducto}}</td>
+            <td>{{producto.precioProducto}}</td>
+            <td>
+              <a
+                href="/editarproducto/{{producto.idProducto}}"
+                class="btn btn-success btn-sm me-1"
+                >Editar</a
+              ><a
+                href="{{url_for('eliminarProducto', idProducto=producto.idProducto)}}"
+                class="btn btn-danger btn-sm"
+                >Eliminar</a
+              >
+            </td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+  </div>
+</main>
+{% endblock %}

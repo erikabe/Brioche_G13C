@@ -1,0 +1,60 @@
+<html>
+
+<head>
+    <title>Usuarios Nuevos</title>
+    <!-- JQUERY -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+    <!--FRAMEWORK BOOTSTRAP para el estilo de la pagina-->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+
+    <!-- Los iconos tipo Solid de Fontawesome-->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.8/css/solid.css">
+    <script src="https://use.fontawesome.com/releases/v5.0.7/js/all.js"></script>
+
+    <!-- Nuestro css-->
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename= 'css/estilo.css') }}">
+</head>
+
+<body>
+    <div class="modal-content">
+        <div class="row">
+            <div class="col-md-6 center">
+
+                <img class= "carrito" src="{{ url_for('static', filename= 'img/cafeteria.jpg')}}" alt="no se me ">
+                <input type="text" width="30px" placeholder="Cantidad">
+            </div>
+            <div class="col-md-6">
+
+                <img class= "carrito" src="{{ url_for('static', filename= 'img/cafeteria.jpg')}}" alt="no se me ">
+                <input type="text" width="30px" placeholder="Cantidad">
+
+            </div>
+            <div class="col-md-6">
+
+                <img class="carrito" src="{{ url_for('static', filename= 'img/cafeteria.jpg')}}" alt="no se me ">
+                <input type="text" width="30px" placeholder="Cantidad">
+            </div>
+            <div class="col-md-6">
+
+                <img class= "carrito" src="{{ url_for('static', filename= 'img/cafeteria.jpg')}}" alt="no se me ">
+                <input type="text" width="30px" placeholder="Cantidad">
+            </div>
+            <div class="col-sm-7">
+                <button action= '/factura' type="submit" class="btn btn-primary"> <a href="/factura" style="color: blanchedalmond;">Pagar</a></button>
+                <button action= '/' type="submit" class="btn btn-danger"> <a href="/" style="color: blanchedalmond;">  Salir</a>  </button>
+            </div>
+
+
+        </div>
+    </div>
+
+
+
+
+
+
+</body>
+
+</html>

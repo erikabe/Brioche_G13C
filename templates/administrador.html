@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+
+{% block head %}
+<title>Administrador</title>
+{% endblock %}
+
+{% block body %}
+<div class="modal-dialog text-center">
+  <div class="col-sm-8 main-section">
+    <div class="modal-content">
+      <form class="col-12">
+        <button
+          action="/crearProducto"
+          style="margin-top: 35px; width: 150px"
+          type="submit"
+          class="btn btn-primary"
+        >
+          <a href="{{url_for('agregarProductos')}}" class="btn btn-primary">
+            Crear Producto</a
+          >
+        </button>
+        <button
+          action="/crearUsuario"
+          style="margin-top: 15px; width: 150px"
+          type="submit"
+          class="btn btn-primary mb-3"
+        >
+          <a href="{{url_for('registro')}}" class="btn btn-primary">
+            Crear Usuario</a
+          >
+        </button>
+      </form>
+      <div class="col-12 goback">
+        <a href="{{url_for('logout')}}" class="btn btn-danger">Cerrar Sesion</a>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}
